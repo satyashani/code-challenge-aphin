@@ -2,7 +2,7 @@ module.exports = {
     usernotfound : "UserNotFound",
     userexists : "UserExists",
     dberror : "DatabaseError",
-    usernameExists : "UsernameExists",
     generalError : "GeneralError",
-    usernameExists : "UsernameExists"
+    usernameExists : "UsernameExists",
+    commentNotFound: "CommentExists"
 };
