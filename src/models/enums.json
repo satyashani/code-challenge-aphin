@@ -5,21 +5,7 @@
         "stage" : "stage",
         "prod"  : "prod"
     },
-    "client" : {
-        "status" : {
-            "created" : "created",
-            "profileupdated" : "profileupdated",
-            "bmverified" : "bmverified",
-            "blacklist" : "blacklist"
-        },
-        "projectvisibility" : {
-            "public" : "public",
-            "invited" : "invited",
-            "private" : "private"
-        },
-        "accounttype" : {
-            "subscription" : "subscription",
-            "perproject" : "perproject"
-        }
+    "user" : {
+        
     }
 }
