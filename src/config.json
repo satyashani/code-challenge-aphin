@@ -1,0 +1,25 @@
+{
+    "env" : "local",
+    "app" : {
+        "port" : 4000,
+        "env" : "local",
+        "https" : false,
+        "servicehost" : "localhost",
+        "serviceport" : 5000
+    },
+    "session" : {
+        "secret" : "test",
+        "days"   : 365
+    },
+    "db" : {
+        "service" : "mongodb",
+        "username" : "alphin",
+        "password" : "Rewq!234",
+        "host" : "localhost",
+        "dbname" : "alphin",
+        "bufferCommands" : false
+    },
+    "logging" : {
+        "logLevel" : "debug"
+    }
+}
