@@ -1,9 +1,3 @@
-/* * ************************************************************ 
- * Date: 2 Sep, 2018
- * programmer: Shani Mahadeva <shani.mahadeva@blumatter.com>
- * Company : BluMatter Inc.
- * Javascript file connection.js
- * *************************************************************** */
 
 // Lib
 var mongoose = require('mongoose');

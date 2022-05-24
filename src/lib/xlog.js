@@ -1,9 +1,3 @@
-/* * ************************************************************ 
- * Date: 12 Aug, 2016
- * programmer: Shani Mahadeva <shani.mahadeva@blumatter.com>
- * Company : BluMatter Inc.
- * Javascript file xlog.js
- * *************************************************************** */
 
 var conf = require("../config");
 

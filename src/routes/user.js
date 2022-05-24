@@ -1,13 +1,3 @@
-/* * ************************************************************ 
- * Date: 5 Sep, 2018
- * programmer: Shani Mahadeva <shani.mahadeva@blumatter.com>
- * Company : BluMatter Inc.
- * Javascript file user.js
- * *************************************************************** */
-
-
-var async = require("async");
-
 // Deps
 var models = require("../models/");
 var lib = require("../lib/");

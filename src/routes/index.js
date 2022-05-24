@@ -1,9 +1,3 @@
-/* * ************************************************************ 
- * Date: 3 Sep, 2018
- * programmer: Shani Mahadeva <shani.mahadeva@blumatter.com>
- * Company : BluMatter Inc.
- * Javascript file index.js
- * *************************************************************** */
 
 // Lib
 var http = require("http");

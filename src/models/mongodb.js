@@ -1,10 +1,3 @@
-/* * ************************************************************ 
- * Date: 15 Oct, 2018
- * programmer: Shani Mahadeva <shani.mahadeva@blumatter.com>
- * Company : BluMatter Inc.
- * Javascript file mongodb.js
- * *************************************************************** */
-
 // Conf
 var config = require("../config");
 
