@@ -55,8 +55,6 @@ lib.log.action("APP","Connecting to database..");
 
 models.on('connect', function() { 
     lib.log.info("APP","Connected to database, now starting app");
-    
-    models.saveStatic();
     routes.init(app);
 });
 

@@ -109,14 +109,14 @@ var handlers = {
         if(req.query.username){
             q.username = new RegExp(".*"+req.query.username+".*","i");
         }
-        var start = req.query.start || 0, limit = req.query.limit || 10, skip = req.query.skip || 0;
+        var start = parseInt(req.query.start) || 0, limit = parseInt(req.query.limit) || 10;
         var sort =  req.query.sort || "-createdAt";
         models.User.countDocuments(q,function(err,count){
             if(!count){
                 return res.json({ data : []});
             }
             models.User.find(q)
-                    .start(start).limit(limit).skip(skip).sort(sort)
+                    .limit(limit).skip(start).sort(sort)
                     .exec(function(err,users){
                 if(err){
                     lib.log.error(modulename,err);

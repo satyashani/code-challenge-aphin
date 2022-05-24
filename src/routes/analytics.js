@@ -11,7 +11,7 @@ var modulename = "r.analytics";
 
 var handlers = {
     topcomment : function(req,res){
-        var start = req.query.start || 0, limit = req.query.limit || 10, skip = req.query.skip || 0;
+        var start = parseInt(req.query.start) || 0, limit = parseInt(req.query.limit) || 10;
         var sort =  req.query.sort || "-createdAt";
         
         var metric = req.body.metric;

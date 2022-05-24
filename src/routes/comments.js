@@ -81,14 +81,14 @@ var handlers = {
         if(req.params.userid){
             q.userId = req.params.userid;
         }
-        var start = req.query.start || 0, limit = req.query.limit || 10, skip = req.query.skip || 0;
+        var start = parseInt(req.query.start) || 0, limit = parseInt(req.query.limit) || 10;
         var sort =  req.query.sort || "-createdAt";
         models.Comment.countDocuments(q,function(err,count){
             if(!count){
                 return res.json({ data : []});
             }
             models.Comment.find(q)
-                .start(start).limit(limit).skip(skip).sort(sort)
+                .limit(limit).skip(start).sort(sort)
                 .populate("userId")
                 .exec(function(err,comments){
                if(err){
