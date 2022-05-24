@@ -17,11 +17,11 @@ Data can be uploaded by running the data uploader script under node console as f
 
 ```js
 var uploader = require("./scripts/data-upload");
-uploader.upload(<path to data json>,"ModelName",callback);
+uploader.upload("<path to data json>","ModelName",callback);
 ```
 
 e.g. 
 
 ```js
-uploader.upload("/var/www/alphin/src/data/users.json,"User",callback);
+uploader.upload("/var/www/alphin/src/data/users.json","User",callback);
 ```
