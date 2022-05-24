@@ -5,8 +5,8 @@ var errors = require("../lib/errors");
 
 var modulename = "r.user";
 
-var checkUserName = function(username,callback){
-    models.User.countDocuments({ username : username},callback);
+var checkUserName = function(username,  email ,callback){
+    models.User.countDocuments({ username : username, "contact.email" : { $ne : email }},callback);
 };
 
 var handlers = {
@@ -42,11 +42,12 @@ var handlers = {
                         lib.log(modulename,err);
                         return res.json({error : errors.dberror});
                     }
+                    res.json({ data : u});
                 });
             });
         };
         if(req.body.username){
-            checkUserName(req.body.username,function(err,count){
+            checkUserName(req.body.username,req.body.email,function(err,count){
                 if(count){
                     return res.json({ error : errors.usernameExists});
                 }
@@ -72,7 +73,7 @@ var handlers = {
         }
         
         var updateUser = function(){
-            models.User.findOne({ email : req.body.email },function(err,user){
+            models.User.findOne({ "contact.email" : req.body.email },function(err,user){
                 if(err){
                     return res.json({error : errors.dberror});
                 }
@@ -82,6 +83,7 @@ var handlers = {
                 user.contact.firstName = req.body.firstname;
                 user.contact.lastName  = req.body.lastname;
                 user.profilePictureUrl = req.body.profilePictureUrl;
+                user.username = req.body.username;
                 user.save(function(err){
                     if(err){
                         lib.log.error(modulename,err);
@@ -93,7 +95,8 @@ var handlers = {
         };
         
         if(req.body.username){
-            checkUserName(req.body.username,function(err,count){
+            checkUserName(req.body.username,req.body.email,function(err,count){
+                console.log(err,count);
                 if(count){
                     return res.json({ error : errors.usernameExists});
                 }

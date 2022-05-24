@@ -40,7 +40,7 @@ var handlers = {
     update : function(req,res){
         var check = lib.validator.check({
             properties : {
-                _id       : { type : 'string' },
+                _id       : { type : 'string', required  : true },
                 hashtags  : { type : "array" ,  items:  { type : 'string' } },
                 mentions  : { type : "array" ,  items:  { type : 'string' } },
                 text      : { type : 'string' },
@@ -75,11 +75,8 @@ var handlers = {
     
     list : function(req,res){
         var q = {};
-        if(req.query.username){
-            q.username = new RegExp(".*"+req.query.username+".*","i");
-        }
-        if(req.params.userid){
-            q.userId = req.params.userid;
+        if(req.query.userid){
+            q.userId = req.query.userid;
         }
         var start = parseInt(req.query.start) || 0, limit = parseInt(req.query.limit) || 10;
         var sort =  req.query.sort || "-createdAt";

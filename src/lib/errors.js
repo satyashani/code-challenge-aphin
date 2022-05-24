@@ -4,6 +4,6 @@ module.exports = {
     dberror : "DatabaseError",
     generalError : "GeneralError",
     usernameExists : "UsernameExists",
-    commentNotFound: "CommentExists",
+    commentNotFound: "CommentNotFound",
     invalidInput : "InvalidInput"
 };

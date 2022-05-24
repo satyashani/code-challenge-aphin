@@ -47,7 +47,7 @@ app.use(require('morgan')(
             tokens['response-time'](req, res)+"ms'"
         ].join(' ');
     },{
-        skip : function(req,res){  return req.url.match(/^\/(js|css|html|img|font|me$|notifications|files|config|public)/); }
+        skip : function(req,res){  return req.url.match(/^\/(js|css|html|img|font)/); }
     })
 );
 

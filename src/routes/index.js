@@ -48,6 +48,7 @@ exports.init = function(app){
         if (res.headersSent) {
             return next(err);
         }
+        console.log(err);
         res.json({ error : errors.generalError });
     });
     
