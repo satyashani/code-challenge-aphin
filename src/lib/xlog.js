@@ -6,7 +6,6 @@
  * *************************************************************** */
 
 var conf = require("../config");
-var slack = require("./slack");
 
 var logTypes = {
     'error' : 0, 'warning' : 1, 'notice' : 2, 'action' : 3 , 'info' : 4, debug : 5

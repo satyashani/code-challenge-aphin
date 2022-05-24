@@ -5,11 +5,8 @@ const EventEmitter = require('events');
 var config = require("../config");
 var xlog = require("../lib/xlog");
 
-// This is loaded to enstablish connection before creating models
-var mongoose = require("./mongoose");
-    
+var mongoose = require("./mongoose");    
 var modulename = 'models';
-
 var modelNames = ["Comment", "User"];
 
 var models = {};
@@ -21,8 +18,9 @@ modelNames.forEach(function(m){
 class ModelsConnector extends EventEmitter {
     constructor(){
         super();
+        var me = this;
         modelNames.forEach(function(m){
-            this[m] = models[m].model;
+            me[m] = models[m].model;
         });
     }
     
