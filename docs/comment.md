@@ -103,7 +103,7 @@
 **RESPONSE**
 
 ```js
-{ data : { count : } }
+{ data : { count : Number } }
 ```
 
 ----
