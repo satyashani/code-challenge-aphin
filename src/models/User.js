@@ -15,6 +15,7 @@ const User = new Schema({
         email     : String
     },
     profilePictureUrl : String,
+    id       : String,
     username : String
 },{ timestamps : true });
 

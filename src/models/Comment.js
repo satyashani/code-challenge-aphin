@@ -6,6 +6,7 @@ const Comment = new Schema({
     mentions    : [ String ],
     text        : String,
     timestamp   : Schema.Types.Date,
+    uid         : String,
     userId      : {type: Schema.Types.ObjectId, ref: 'User'}
 },{ timestamps: true });
 
