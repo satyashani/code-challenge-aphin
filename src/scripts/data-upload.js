@@ -55,16 +55,20 @@ var uploader = function(sourcefile,modelname,callback){
 };
 
 var uidMap = function(callback){
+    var found = 0;
     models.Comment.find({},function(err,comments){
         async.each(comments,function(comment,cb){
             models.User.findOne({ id : comment.uid},function(err,user){
                 if(!user){
                     return cb();
                 }
+                found++;
                 comment.userId = user._id;
                 comment.save(cb);
             });
-        },callback);
+        },function(err){
+            callback(err,found);
+        });
     });
 };
 
