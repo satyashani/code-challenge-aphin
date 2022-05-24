@@ -43,8 +43,7 @@ var handlers = {
                 _id       : { type : 'string', required  : true },
                 hashtags  : { type : "array" ,  items:  { type : 'string' } },
                 mentions  : { type : "array" ,  items:  { type : 'string' } },
-                text      : { type : 'string' },
-                user      : { type : 'string' }
+                text      : { type : 'string' }
             }
         },req.body);
         if(check !== true){
