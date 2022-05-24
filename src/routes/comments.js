@@ -12,6 +12,18 @@ var modulename = "r.messages";
 
 var handlers = {
     create : function(req,res){
+        var check = lib.validator.check({
+            properties : {
+                hashtags  : { type : "array" ,  items:  { type : 'string' } },
+                mentions  : { type : "array" ,  items:  { type : 'string' } },
+                text      : { type : 'string' },
+                user      : { type : 'string' }
+            }
+        },req.body);
+        if(check !== true){
+            return res.json(check);
+        }
+        
         var comment = new models.Comment({
             hashTags    : req.body.hashtags || [],
             mentions    : req.body.mentions || [],
@@ -29,6 +41,19 @@ var handlers = {
     },
     
     update : function(req,res){
+        var check = lib.validator.check({
+            properties : {
+                _id       : { type : 'string' },
+                hashtags  : { type : "array" ,  items:  { type : 'string' } },
+                mentions  : { type : "array" ,  items:  { type : 'string' } },
+                text      : { type : 'string' },
+                user      : { type : 'string' }
+            }
+        },req.body);
+        if(check !== true){
+            return res.json(check);
+        }
+        
         models.Comment.findOne({ _id : req.body._id},function(err,comment){
             if(err){
                 log.error(modulename,err);

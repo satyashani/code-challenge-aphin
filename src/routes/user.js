@@ -21,6 +21,18 @@ var checkUserName = function(username,callback){
 
 var handlers = {
     create : function(req,res){
+        var check = lib.validator.check({
+            properties : {
+                email : { $ref : '/email', required : true},
+                firstname : { type : 'string' },
+                lastname  : { type : 'string' },
+                profilePictureUrl : { type : 'string' },
+                username  : { type : 'string' }
+            }
+        },req.body);
+        if(check !== true){
+            return res.json(check);
+        }
         var createUser = function(){
             models.User.findOne({ "contact.email" : req.body.email },function(err,user){
                 if(user){
@@ -56,8 +68,21 @@ var handlers = {
     },
     
     update : function(req,res){
+        var check = lib.validator.check({
+            properties : {
+                email : { $ref : '/email', required : true},
+                firstname : { type : 'string' },
+                lastname  : { type : 'string' },
+                profilePictureUrl : { type : 'string' },
+                username  : { type : 'string' }
+            }
+        },req.body);
+        if(check !== true){
+            return res.json(check);
+        }
+        
         var updateUser = function(){
-            models.User.findOne({ _id : req.session.user._id },function(err,user){
+            models.User.findOne({ email : req.body.email },function(err,user){
                 if(err){
                     return res.json({error : errors.dberror});
                 }
